@@ -1,0 +1,20 @@
+---
+title: Sidebar
+description: Collapsible side panel.
+---
+
+Collapsible side panel.
+
+<ExampleFrame src="/godot-addon-shadcn/example/index.html?c=sidebar" />
+
+Use the panel on the left of the demo to customize this component live, and the
+toolbar to switch base color, accent and light/dark.
+
+## Usage
+
+```gdscript
+var sb := ShadcnSidebar.new()
+add_child(sb)
+sb.content.add_child(my_nav)
+sb.toggle()
+```

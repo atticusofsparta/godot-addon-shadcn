@@ -1,0 +1,18 @@
+---
+title: Date Picker
+description: Button that opens a calendar popover.
+---
+
+Button that opens a calendar popover.
+
+<ExampleFrame src="/godot-addon-shadcn/example/index.html?c=date-picker" />
+
+Use the panel on the left of the demo to customize this component live, and the
+toolbar to switch base color, accent and light/dark.
+
+## Usage
+
+```gdscript
+var p := ShadcnDatePicker.new()
+p.date_selected.connect(func(y, m, d): print(y, m, d))
+```

@@ -1,0 +1,20 @@
+---
+title: Toggle Group
+description: A row of toggles; `single` = radio behavior.
+---
+
+A row of toggles; `single` = radio behavior.
+
+<ExampleFrame src="/godot-addon-shadcn/example/index.html?c=toggle-group" />
+
+Use the panel on the left of the demo to customize this component live, and the
+toolbar to switch base color, accent and light/dark.
+
+## Usage
+
+```gdscript
+var g := ShadcnToggleGroup.new()
+g.single = true
+for x in ["B", "I", "U"]:
+	var t := ShadcnToggle.new(); t.text = x; g.add_child(t)
+```

@@ -1,0 +1,21 @@
+---
+title: Empty
+description: Empty-state placeholder with actions.
+---
+
+Empty-state placeholder with actions.
+
+<ExampleFrame src="/godot-addon-shadcn/example/index.html?c=empty" />
+
+Use the panel on the left of the demo to customize this component live, and the
+toolbar to switch base color, accent and light/dark.
+
+## Usage
+
+```gdscript
+var e := ShadcnEmpty.new()
+e.title = "No projects"
+e.description = "Create one to get started."
+add_child(e)
+var b := ShadcnButton.new(); b.text = "New"; e.actions.add_child(b)
+```

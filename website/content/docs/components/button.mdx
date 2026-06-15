@@ -1,0 +1,21 @@
+---
+title: Button
+description: Clickable button with variants and sizes.
+---
+
+Clickable button with variants and sizes.
+
+<ExampleFrame src="/godot-addon-shadcn/example/index.html?c=button" />
+
+Use the panel on the left of the demo to customize this component live, and the
+toolbar to switch base color, accent and light/dark.
+
+## Usage
+
+```gdscript
+var b := ShadcnButton.new()
+b.variant = ShadcnButton.Variant.PRIMARY  # PRIMARY/SECONDARY/DESTRUCTIVE/OUTLINE/GHOST/LINK
+b.button_size = ShadcnButton.Size.DEFAULT
+b.text = "Continue"
+add_child(b)
+```

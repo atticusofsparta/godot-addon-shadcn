@@ -1,0 +1,19 @@
+---
+title: Menubar
+description: Desktop-style menu bar (themed MenuBar).
+---
+
+Desktop-style menu bar (themed MenuBar).
+
+<ExampleFrame src="/godot-addon-shadcn/example/index.html?c=menubar" />
+
+Use the panel on the left of the demo to customize this component live, and the
+toolbar to switch base color, accent and light/dark.
+
+## Usage
+
+```gdscript
+var menu := MenuBar.new()
+var file := PopupMenu.new(); file.name = "File"; file.add_item("New")
+menu.add_child(file)
+```

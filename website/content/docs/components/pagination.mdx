@@ -1,0 +1,19 @@
+---
+title: Pagination
+description: Page navigation.
+---
+
+Page navigation.
+
+<ExampleFrame src="/godot-addon-shadcn/example/index.html?c=pagination" />
+
+Use the panel on the left of the demo to customize this component live, and the
+toolbar to switch base color, accent and light/dark.
+
+## Usage
+
+```gdscript
+var pg := ShadcnPagination.new()
+pg.page_count = 10
+pg.page_changed.connect(func(p): print(p))
+```

@@ -40,7 +40,7 @@ func _draw() -> void:
 		draw_colored_polygon(pts, Color.WHITE, uvs, image)
 	else:
 		draw_circle(center, r, T.c("muted"))
-		var f := ThemeDB.fallback_font
+		var f := ShadcnTokens.font()
 		var fs := int(diameter * 0.4)
 		var text := fallback.substr(0, 2).to_upper()
 		var ts := f.get_string_size(text, HORIZONTAL_ALIGNMENT_CENTER, -1, fs)

@@ -1,0 +1,19 @@
+---
+title: Radio Group
+description: Mutually exclusive checkboxes via a ButtonGroup.
+---
+
+Mutually exclusive checkboxes via a ButtonGroup.
+
+<ExampleFrame src="/godot-addon-shadcn/example/index.html?c=radio-group" />
+
+Use the panel on the left of the demo to customize this component live, and the
+toolbar to switch base color, accent and light/dark.
+
+## Usage
+
+```gdscript
+var group := ButtonGroup.new()
+for x in ["A", "B"]:
+	var r := CheckBox.new(); r.text = x; r.button_group = group
+```

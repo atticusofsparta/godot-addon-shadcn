@@ -1,0 +1,20 @@
+---
+title: Button Group
+description: Joins related buttons with a shared border.
+---
+
+Joins related buttons with a shared border.
+
+<ExampleFrame src="/godot-addon-shadcn/example/index.html?c=button-group" />
+
+Use the panel on the left of the demo to customize this component live, and the
+toolbar to switch base color, accent and light/dark.
+
+## Usage
+
+```gdscript
+var g := ShadcnButtonGroup.new()
+for t in ["Left", "Center", "Right"]:
+	var b := Button.new(); b.text = t; g.add_child(b)
+add_child(g)
+```

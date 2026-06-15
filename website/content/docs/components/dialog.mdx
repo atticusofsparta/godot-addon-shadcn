@@ -1,0 +1,20 @@
+---
+title: Dialog
+description: Modal dialog.
+---
+
+Modal dialog.
+
+<ExampleFrame src="/godot-addon-shadcn/example/index.html?c=dialog" />
+
+Use the panel on the left of the demo to customize this component live, and the
+toolbar to switch base color, accent and light/dark.
+
+## Usage
+
+```gdscript
+var d := ShadcnDialog.new()
+d.title = "Edit profile"
+add_child(d)
+d.open()
+```

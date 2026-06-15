@@ -1,0 +1,21 @@
+---
+title: Popover
+description: Rich content in a floating panel.
+---
+
+Rich content in a floating panel.
+
+<ExampleFrame src="/godot-addon-shadcn/example/index.html?c=popover" />
+
+Use the panel on the left of the demo to customize this component live, and the
+toolbar to switch base color, accent and light/dark.
+
+## Usage
+
+```gdscript
+var pop := PopupPanel.new()
+pop.wrap_controls = true
+pop.add_child(content)
+add_child(pop)
+pop.popup(Rect2i(btn.get_screen_position() + Vector2(0, btn.size.y + 6), Vector2i.ZERO))
+```

@@ -1,0 +1,19 @@
+---
+title: Input OTP
+description: One-time-code boxes with auto-advance.
+---
+
+One-time-code boxes with auto-advance.
+
+<ExampleFrame src="/godot-addon-shadcn/example/index.html?c=input-otp" />
+
+Use the panel on the left of the demo to customize this component live, and the
+toolbar to switch base color, accent and light/dark.
+
+## Usage
+
+```gdscript
+var otp := ShadcnInputOTP.new()
+otp.length = 6
+otp.completed.connect(func(code): print(code))
+```

@@ -538,7 +538,7 @@ func _toast(p: Node) -> void:
 func _kbd(p: Node) -> void:
 	_section(p, "Kbd")
 	var row := _row(p, 6)
-	for k in ["⌘", "K", "⇧", "Esc"]:
+	for k in ["Ctrl", "K", "Shift", "Esc"]:
 		var kb := ShadcnKbd.new(); kb.text = k
 		row.add_child(kb)
 

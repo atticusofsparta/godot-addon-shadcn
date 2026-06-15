@@ -1,0 +1,19 @@
+---
+title: Command
+description: Command palette (search + actions).
+---
+
+Command palette (search + actions).
+
+<ExampleFrame src="/godot-addon-shadcn/example/index.html?c=command" />
+
+Use the panel on the left of the demo to customize this component live, and the
+toolbar to switch base color, accent and light/dark.
+
+## Usage
+
+```gdscript
+var cmd := ShadcnCommand.new()
+cmd.add_item("new", "New File")
+cmd.selected.connect(func(id): print(id))
+```

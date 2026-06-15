@@ -1,0 +1,21 @@
+---
+title: Alert Dialog
+description: Confirmation dialog.
+---
+
+Confirmation dialog.
+
+<ExampleFrame src="/godot-addon-shadcn/example/index.html?c=alert-dialog" />
+
+Use the panel on the left of the demo to customize this component live, and the
+toolbar to switch base color, accent and light/dark.
+
+## Usage
+
+```gdscript
+var a := ShadcnAlertDialog.new()
+a.title = "Are you sure?"
+a.destructive = true
+a.confirmed.connect(func(): pass)
+add_child(a); a.open()
+```

@@ -1,0 +1,19 @@
+---
+title: Toast
+description: Temporary notification (shadcn Sonner).
+---
+
+Temporary notification (shadcn Sonner).
+
+<ExampleFrame src="/godot-addon-shadcn/example/index.html?c=toast" />
+
+Use the panel on the left of the demo to customize this component live, and the
+toolbar to switch base color, accent and light/dark.
+
+## Usage
+
+```gdscript
+ShadcnToast.notify(self, "Event created", "Sunday at 9:00 AM.")
+# or via the autoload:
+ShadcnToasts.push("Saved", "Your changes were saved.")
+```

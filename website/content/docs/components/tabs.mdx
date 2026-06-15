@@ -1,0 +1,19 @@
+---
+title: Tabs
+description: Layered content panels (themed TabContainer).
+---
+
+Layered content panels (themed TabContainer).
+
+<ExampleFrame src="/godot-addon-shadcn/example/index.html?c=tabs" />
+
+Use the panel on the left of the demo to customize this component live, and the
+toolbar to switch base color, accent and light/dark.
+
+## Usage
+
+```gdscript
+var tabs := TabContainer.new()
+var page := VBoxContainer.new(); page.name = "Account"
+tabs.add_child(page)
+```

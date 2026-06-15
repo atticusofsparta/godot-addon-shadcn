@@ -1,0 +1,21 @@
+---
+title: Input Group
+description: Input with leading/trailing addons.
+---
+
+Input with leading/trailing addons.
+
+<ExampleFrame src="/godot-addon-shadcn/example/index.html?c=input-group" />
+
+Use the panel on the left of the demo to customize this component live, and the
+toolbar to switch base color, accent and light/dark.
+
+## Usage
+
+```gdscript
+var ig := ShadcnInputGroup.new()
+ig.placeholder = "Search…"
+var icon := Label.new(); icon.text = "🔍"
+ig.add_prefix(icon)
+print(ig.line_edit.text)
+```

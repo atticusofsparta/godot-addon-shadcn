@@ -1,0 +1,20 @@
+---
+title: Alert
+description: Callout for user attention.
+---
+
+Callout for user attention.
+
+<ExampleFrame src="/godot-addon-shadcn/example/index.html?c=alert" />
+
+Use the panel on the left of the demo to customize this component live, and the
+toolbar to switch base color, accent and light/dark.
+
+## Usage
+
+```gdscript
+var a := ShadcnAlert.new()
+a.variant = ShadcnAlert.Variant.DESTRUCTIVE
+a.title = "Error"
+a.description = "Your session expired."
+```

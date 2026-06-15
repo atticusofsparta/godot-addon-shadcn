@@ -17,6 +17,17 @@ const RADIUS_SM := 6
 const FONT_SM := 14
 const FONT_XS := 12
 
+const _FONT_PATH := "res://addons/shadcn/fonts/Inter-Regular.woff2"
+static var _font: Font
+
+
+## Bundled Inter font (used by custom-drawn nodes so their text matches the
+## themed controls and renders glyphs on web). Falls back to the engine font.
+static func font() -> Font:
+	if _font == null and ResourceLoader.exists(_FONT_PATH):
+		_font = load(_FONT_PATH)
+	return _font if _font else ThemeDB.fallback_font
+
 
 ## Resolved palette (base + accent override) for the active mode.
 static func palette() -> Dictionary:

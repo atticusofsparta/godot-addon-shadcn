@@ -151,9 +151,15 @@ static func build(base := "neutral", accent := "", dark := true) -> Theme:
 	return build_from_palette(p, dark)
 
 
+const FONT_PATH := "res://addons/shadcn/fonts/Inter-Regular.woff2"
+
 static func build_from_palette(p: Dictionary, dark := true) -> Theme:
 	var t := Theme.new()
 	t.default_font_size = FS
+	# Bundled Inter (shadcn's typeface) — also gives web exports full glyph
+	# coverage (arrows, triangles, checks) that Godot's default font lacks.
+	if ResourceLoader.exists(FONT_PATH):
+		t.set_default_font(load(FONT_PATH))
 
 	var primary: Color = p["primary"]
 	var bg: Color = p["background"]

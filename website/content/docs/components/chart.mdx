@@ -1,0 +1,21 @@
+---
+title: Chart
+description: Line / area / bar / pie / donut / radar / radial.
+---
+
+Line / area / bar / pie / donut / radar / radial.
+
+<ExampleFrame src="/godot-addon-shadcn/example/index.html?c=chart" />
+
+Use the panel on the left of the demo to customize this component live, and the
+toolbar to switch base color, accent and light/dark.
+
+## Usage
+
+```gdscript
+var c := ShadcnChart.new()
+c.kind = ShadcnChart.Kind.AREA
+c.gradient = true
+c.x_labels = ["Jan", "Feb", "Mar"]
+c.add_series([186, 305, 237], "Desktop")
+```

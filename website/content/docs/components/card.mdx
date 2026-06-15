@@ -1,0 +1,20 @@
+---
+title: Card
+description: Bordered surface with title/description.
+---
+
+Bordered surface with title/description.
+
+<ExampleFrame src="/godot-addon-shadcn/example/index.html?c=card" />
+
+Use the panel on the left of the demo to customize this component live, and the
+toolbar to switch base color, accent and light/dark.
+
+## Usage
+
+```gdscript
+var card := ShadcnCard.new()
+var box := VBoxContainer.new(); card.add_child(box)
+var t := ShadcnCardTitle.new(); t.text = "Create project"
+box.add_child(t)
+```

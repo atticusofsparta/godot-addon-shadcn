@@ -1,0 +1,20 @@
+---
+title: Sheet
+description: Slide-out panel from any edge.
+---
+
+Slide-out panel from any edge.
+
+<ExampleFrame src="/godot-addon-shadcn/example/index.html?c=sheet" />
+
+Use the panel on the left of the demo to customize this component live, and the
+toolbar to switch base color, accent and light/dark.
+
+## Usage
+
+```gdscript
+var s := ShadcnSheet.new()
+s.side = ShadcnSheet.SheetSide.RIGHT
+s.title = "Settings"
+add_child(s); s.open()
+```

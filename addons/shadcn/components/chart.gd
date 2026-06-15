@@ -99,7 +99,7 @@ func _series_color(i: int) -> Color:
 
 
 func _font() -> Font:
-	return ThemeDB.fallback_font
+	return ShadcnTokens.font()
 
 
 # ----------------------------------------------------------------- hover

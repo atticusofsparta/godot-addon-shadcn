@@ -1,0 +1,19 @@
+---
+title: Combobox
+description: Searchable select.
+---
+
+Searchable select.
+
+<ExampleFrame src="/godot-addon-shadcn/example/index.html?c=combobox" />
+
+Use the panel on the left of the demo to customize this component live, and the
+toolbar to switch base color, accent and light/dark.
+
+## Usage
+
+```gdscript
+var cb := ShadcnCombobox.new()
+cb.items = ["Next.js", "Nuxt", "Godot"]
+cb.selected.connect(func(v): print(v))
+```
