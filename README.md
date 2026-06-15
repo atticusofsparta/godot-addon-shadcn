@@ -17,7 +17,7 @@ sRGB). Light and dark variants are included.
 
 ## Requirements
 
-Godot **4.3+** (developed and verified against 4.4.1).
+Godot **4.3+** (developed and verified against 4.6.3).
 
 ## Install
 
