@@ -1,0 +1,12 @@
+{
+  "title": "Docs",
+  "pages": [
+    "index",
+    "installation",
+    "theming",
+    "color-schemes",
+    "live-example",
+    "---Components---",
+    "components"
+  ]
+}

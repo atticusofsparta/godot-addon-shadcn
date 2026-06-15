@@ -1,0 +1,18 @@
+# Godot
+.godot/
+build/
+export_presets.cfg.bak
+*.translation
+
+# Web export output (generated in CI)
+/build/
+
+# Node / docs site
+website/node_modules/
+website/dist/
+website/.source/
+website/.waku/
+
+# OS
+.DS_Store
+*.log

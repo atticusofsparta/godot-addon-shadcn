@@ -1,0 +1,84 @@
+---
+title: Inputs & Forms
+description: Input, Textarea, Select, Combobox, Input Group, Input OTP, Field, Checkbox, Radio, Switch, Slider, Date Picker, Calendar.
+---
+
+## Themed controls
+
+These are Godot built-ins, styled by the theme — use them normally:
+
+```gdscript
+var input := LineEdit.new()           # Input
+var area := TextEdit.new()            # Textarea
+var select := OptionButton.new()      # Select / Native Select
+var check := CheckBox.new()           # Checkbox (accent-aware check icon)
+var sw := CheckButton.new()           # Switch
+var slider := HSlider.new()           # Slider
+```
+
+Radio Group = `CheckBox` nodes sharing a `ButtonGroup` (they render as radios).
+
+## ShadcnField
+
+Wraps a control with a label and helper/error text. Add the control to
+`field.content` **after** adding the field to the tree.
+
+```gdscript
+var field := ShadcnField.new()
+field.label = "Email"
+field.description = "We'll never share your email."
+add_child(field)
+var le := LineEdit.new()
+le.placeholder_text = "you@example.com"
+field.content.add_child(le)
+```
+
+## ShadcnInputGroup
+
+```gdscript
+var ig := ShadcnInputGroup.new()
+ig.placeholder = "Search…"
+var icon := Label.new(); icon.text = "🔍"
+ig.add_prefix(icon)          # or ig.add_suffix(button)
+add_child(ig)
+print(ig.line_edit.text)     # the inner LineEdit
+```
+
+## ShadcnInputOTP
+
+```gdscript
+var otp := ShadcnInputOTP.new()
+otp.length = 6
+otp.completed.connect(func(code): print("entered ", code))
+add_child(otp)
+```
+
+## ShadcnCombobox
+
+```gdscript
+var cb := ShadcnCombobox.new()
+cb.placeholder = "Select framework…"
+cb.items = ["Next.js", "Nuxt", "Remix", "Astro", "Godot"]
+cb.selected.connect(func(v): print(v))
+add_child(cb)
+```
+
+## ShadcnCalendar / ShadcnDatePicker
+
+```gdscript
+var cal := ShadcnCalendar.new()
+cal.date_selected.connect(func(y, m, d): print(y, m, d))
+
+var picker := ShadcnDatePicker.new()   # button that opens a calendar popover
+picker.date_selected.connect(func(y, m, d): print(y, m, d))
+```
+
+## ShadcnSwitch
+
+A custom pill switch (the on-track uses the accent color).
+
+```gdscript
+var s := ShadcnSwitch.new()
+s.button_pressed = true
+s.switched.connect(func(on): print(on))
+```

@@ -1,0 +1,75 @@
+---
+title: Overview
+description: Every shadcn component and how it maps to shadcn-godot.
+---
+
+Components come in two forms:
+
+- **Custom nodes** — reusable `class_name Shadcn*` nodes for things Godot lacks.
+  Create them in code (`ShadcnButton.new()`) or from the editor's *Create Node*
+  dialog.
+- **Themed stock controls** — Godot's own controls, restyled by the theme. Use
+  them as you normally would; they just look like shadcn.
+
+All custom nodes register in the `shadcn_refresh` group and expose a `refresh()`
+method, so [`ShadcnTokens.apply()`](/docs/color-schemes) restyles them live.
+
+## Coverage
+
+| shadcn component | shadcn-godot |
+| --- | --- |
+| Accordion | `ShadcnAccordionItem` |
+| Alert | `ShadcnAlert` |
+| Alert Dialog | `ShadcnAlertDialog` |
+| Aspect Ratio | `AspectRatioContainer` (Godot) |
+| Avatar | `ShadcnAvatar` |
+| Badge | `ShadcnBadge` |
+| Breadcrumb | `ShadcnBreadcrumb` |
+| Button | `ShadcnButton` / themed `Button` |
+| Button Group | `ShadcnButtonGroup` |
+| Calendar | `ShadcnCalendar` |
+| Card | `ShadcnCard` |
+| Carousel | `ShadcnCarousel` |
+| Chart | `ShadcnChart` |
+| Checkbox | themed `CheckBox` |
+| Collapsible | `ShadcnAccordionItem` |
+| Combobox | `ShadcnCombobox` |
+| Command | `ShadcnCommand` |
+| Context Menu | themed `PopupMenu` |
+| Data Table | `ShadcnDataTable` |
+| Date Picker | `ShadcnDatePicker` |
+| Dialog | `ShadcnDialog` |
+| Drawer | `ShadcnDrawer` |
+| Dropdown Menu | themed `PopupMenu` / `MenuButton` |
+| Empty | `ShadcnEmpty` |
+| Field | `ShadcnField` |
+| Hover Card | `ShadcnHoverCard` |
+| Input | themed `LineEdit` |
+| Input Group | `ShadcnInputGroup` |
+| Input OTP | `ShadcnInputOTP` |
+| Item | `ShadcnItem` |
+| Kbd | `ShadcnKbd` |
+| Label | themed `Label` |
+| Menubar | themed `MenuBar` |
+| Native Select | themed `OptionButton` |
+| Pagination | `ShadcnPagination` |
+| Popover | themed `PopupPanel` |
+| Progress | themed `ProgressBar` |
+| Radio Group | themed `CheckBox` + `ButtonGroup` |
+| Scroll Area | `ScrollContainer` + themed scrollbars |
+| Select | themed `OptionButton` |
+| Separator | themed `HSeparator` / `VSeparator` |
+| Sheet | `ShadcnSheet` |
+| Sidebar | `ShadcnSidebar` |
+| Skeleton | `ShadcnSkeleton` |
+| Slider | themed `HSlider` / `VSlider` |
+| Sonner / Toast | `ShadcnToast` |
+| Spinner | `ShadcnSpinner` |
+| Switch | `ShadcnSwitch` / themed `CheckButton` |
+| Table | themed `Tree` / `ItemList` |
+| Tabs | themed `TabContainer` / `TabBar` |
+| Textarea | themed `TextEdit` |
+| Toggle | `ShadcnToggle` |
+| Toggle Group | `ShadcnToggleGroup` |
+| Tooltip | `ShadcnTooltip` |
+| Typography | themed `Label` |

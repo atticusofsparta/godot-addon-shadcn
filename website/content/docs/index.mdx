@@ -1,0 +1,35 @@
+---
+title: Introduction
+description: A shadcn/ui look-and-feel for Godot 4 — a theme plus the components Godot is missing.
+---
+
+**shadcn-godot** brings the [shadcn/ui](https://ui.shadcn.com) aesthetic to
+[Godot 4](https://godotengine.org). It ships two things:
+
+1. A **Theme** (`.tres`) that restyles Godot's built-in controls — buttons,
+   inputs, selects, tabs, sliders, tables, menus, tooltips and more — so a stock
+   Godot UI looks like shadcn out of the box.
+2. The **components Godot doesn't have**, as reusable `class_name` nodes:
+   charts, dialogs, sheets, a calendar, command palette, combobox, data table,
+   toasts, and a few dozen more.
+
+Colors come straight from the shadcn/ui source (the `neutral`, `stone`, `zinc`,
+`mauve`, `olive`, `mist`, `taupe` base colors and every accent), converted from
+OKLCH to sRGB because Godot themes are sRGB.
+
+## Highlights
+
+- **Light + dark** and every shadcn **base + accent** color scheme, switchable
+  at runtime with one call.
+- **~53 components** covered — see [Components](/docs/components).
+- **Charts**: line / area / bar / pie / donut / radar / radial with curve,
+  stacked, horizontal, gradient and hover-tooltip options.
+- **Pure GDScript**, no GDExtension. Works with the plugin disabled too
+  (every component declares a `class_name`).
+
+## Next steps
+
+- [Installation](/docs/installation)
+- [Theming](/docs/theming)
+- [Color schemes](/docs/color-schemes)
+- [Live example](/docs/live-example)

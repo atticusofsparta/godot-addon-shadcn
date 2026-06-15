@@ -1,0 +1,30 @@
+---
+title: Live example
+description: The Godot showcase scene, exported to the web and embedded here.
+---
+
+Below is the addon's `examples/showcase.tscn` scene exported to HTML5 by Godot
+and embedded in this page. Use the **Base / Accent / Dark** controls in the
+toolbar to switch color schemes live, and scroll to see every component.
+
+<iframe
+  src="/godot-addon-shadcn/example/index.html"
+  title="shadcn-godot showcase"
+  style={{
+    width: '100%',
+    aspectRatio: '16 / 10',
+    border: '1px solid var(--color-fd-border)',
+    borderRadius: '0.5rem',
+  }}
+  allow="cross-origin-isolated"
+/>
+
+<Callout title="First load">
+  The Godot web build is a few MB and compiles WebAssembly on first load, so give
+  it a moment. It's exported single-threaded so it runs on GitHub Pages without
+  special headers.
+</Callout>
+
+The export is produced in CI by Godot's Web preset and copied to
+`/example/` on the docs site — see the
+[deploy workflow](https://github.com/atticusofsparta/godot-addon-shadcn/blob/main/.github/workflows/deploy.yml).

@@ -1,0 +1,58 @@
+---
+title: Buttons & Toggles
+description: Button, Badge, Toggle, Toggle Group, Button Group, Kbd.
+---
+
+## ShadcnButton
+
+```gdscript
+var b := ShadcnButton.new()
+b.variant = ShadcnButton.Variant.PRIMARY   # PRIMARY, SECONDARY, DESTRUCTIVE, OUTLINE, GHOST, LINK
+b.button_size = ShadcnButton.Size.DEFAULT  # DEFAULT, SM, LG, ICON
+b.text = "Continue"
+add_child(b)
+```
+
+A stock `Button` already looks like the primary variant thanks to the theme.
+
+## ShadcnBadge
+
+```gdscript
+var badge := ShadcnBadge.new()
+badge.variant = ShadcnBadge.Variant.SECONDARY  # DEFAULT, SECONDARY, DESTRUCTIVE, OUTLINE
+badge.text = "New"
+```
+
+## ShadcnToggle / ShadcnToggleGroup
+
+```gdscript
+var group := ShadcnToggleGroup.new()
+group.single = true  # mutually exclusive (radio-like); false = multi-select
+for label in ["B", "I", "U"]:
+	var t := ShadcnToggle.new()
+	t.text = label
+	group.add_child(t)
+add_child(group)
+```
+
+A checked toggle fills with the accent color.
+
+## ShadcnButtonGroup
+
+Joins plain `Button` children with a single shared border.
+
+```gdscript
+var bg := ShadcnButtonGroup.new()
+for label in ["Left", "Center", "Right"]:
+	var b := Button.new()
+	b.text = label
+	bg.add_child(b)
+add_child(bg)
+```
+
+## ShadcnKbd
+
+```gdscript
+var k := ShadcnKbd.new()
+k.text = "⌘K"
+```

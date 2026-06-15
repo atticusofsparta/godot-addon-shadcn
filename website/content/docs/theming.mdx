@@ -1,0 +1,60 @@
+---
+title: Theming
+description: How the theme is built and how the tokens map to Godot.
+---
+
+## The token pipeline
+
+shadcn-godot keeps a single source of truth for colors and for the look:
+
+- `tools/themes.ts` — the vendored shadcn/ui palette source.
+- `tools/generate_palettes.py` — parses it and emits
+  `addons/shadcn/palettes.gd` (every base + accent palette, OKLCH → sRGB).
+- `addons/shadcn/theme_builder.gd` (`ShadcnTheme`) — builds a complete Godot
+  `Theme` from a palette. This is the single source of truth for the look.
+- `addons/shadcn/themes/*.tres` — pre-exported themes so the addon works
+  without running any code.
+
+Regenerate after changing colors:
+
+```bash
+python3 tools/generate_palettes.py
+godot --headless --path . --script res://tools/export_themes.gd
+```
+
+## Tokens
+
+`ShadcnTokens` exposes the active palette. Custom components read colors through
+it so they always match the applied theme:
+
+```gdscript
+ShadcnTokens.c("primary")       # accent-aware primary
+ShadcnTokens.c("muted_foreground")
+ShadcnTokens.c("destructive")
+ShadcnTokens.RADIUS_MD          # 8
+ShadcnTokens.FONT_SM            # 14
+```
+
+Available token names: `background`, `foreground`, `card`, `card_foreground`,
+`popover`, `popover_foreground`, `primary`, `primary_foreground`, `secondary`,
+`secondary_foreground`, `muted`, `muted_foreground`, `accent`,
+`accent_foreground`, `destructive`, `destructive_foreground`, `border`,
+`input`, `ring`, `selection`, `chart_1`…`chart_5`.
+
+## What the theme styles
+
+A stock Godot `Button` looks like the shadcn **primary** button. The theme also
+styles `LineEdit`, `TextEdit`, `OptionButton`, `PopupMenu`, `PopupPanel`,
+`PanelContainer`/`Panel`, `TabContainer`/`TabBar`, `ProgressBar`,
+`HSlider`/`VSlider`, scrollbars, `Tree`/`ItemList`, `CheckBox`/`CheckButton`
+(with accent-aware check/radio/switch icons), `Label`, tooltips, separators,
+`MenuBar` and `SpinBox`.
+
+## Styling helpers
+
+`ShadcnStyle` is a small `StyleBoxFlat` factory used by the components:
+
+```gdscript
+ShadcnStyle.flat(bg, radius, border, border_width, pad)   # pad = Vector4(l,t,r,b)
+ShadcnStyle.ring(color, width, radius)                    # focus-ring overlay
+```

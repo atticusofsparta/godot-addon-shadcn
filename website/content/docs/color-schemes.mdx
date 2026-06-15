@@ -1,0 +1,42 @@
+---
+title: Color schemes
+description: Switch base color, accent and light/dark at runtime.
+---
+
+shadcn uses two color axes, both supported here:
+
+- **Base color** — `neutral`, `stone`, `zinc`, `mauve`, `olive`, `mist`,
+  `taupe`. Defines the full grayscale + tint.
+- **Accent color** — `blue`, `green`, `rose`, `violet`, `orange`, … overrides
+  the primary / secondary (and chart colors). `""` keeps the base color's own
+  primary.
+
+## Switch everything at runtime
+
+`ShadcnTokens.apply()` rebuilds the theme, assigns it to a Control subtree, and
+tells every shadcn component (group `shadcn_refresh`) to restyle itself — so the
+theme **and** the custom nodes change together.
+
+```gdscript
+# (root_control, base, accent, dark)
+ShadcnTokens.apply($Root, "zinc", "blue", false)   # zinc base, blue accent, light
+ShadcnTokens.apply($Root, "neutral", "", true)     # default neutral, dark
+```
+
+## Build a theme directly
+
+```gdscript
+$Root.theme = ShadcnTheme.build("stone", "emerald", true)
+```
+
+## Available palettes
+
+```gdscript
+ShadcnPalettes.BASE_NAMES    # ["neutral","stone","zinc","mauve","olive","mist","taupe"]
+ShadcnPalettes.ACCENT_NAMES  # ["amber","blue","cyan","emerald","fuchsia","green",
+                             #  "indigo","lime","orange","pink","purple","red",
+                             #  "rose","sky","teal","violet","yellow"]
+```
+
+Charts pick up the accent automatically because their `chart-1…5` colors are
+part of each palette.

@@ -1,0 +1,42 @@
+---
+title: Data Display
+description: Avatar, Item, Table, Data Table, Kbd.
+---
+
+## ShadcnAvatar
+
+```gdscript
+var av := ShadcnAvatar.new()
+av.diameter = 40
+av.image = preload("res://user.png")   # falls back to initials if null
+av.fallback = "CN"
+```
+
+## ShadcnItem
+
+```gdscript
+var it := ShadcnItem.new()
+it.icon_text = "📁"
+it.title = "Documents"
+it.description = "12 files · updated 2h ago"
+add_child(it)
+# it.actions.add_child(button)   # trailing actions (add after add_child)
+```
+
+## Table
+
+Themed `Tree` / `ItemList` for simple tables and lists.
+
+## ShadcnDataTable
+
+A filter box plus a sortable `Tree`. Click a column header to sort; type to
+filter.
+
+```gdscript
+var dt := ShadcnDataTable.new()
+dt.set_columns(["Invoice", "Status", "Amount"])
+dt.add_row(["INV001", "Paid", "$250"])
+dt.add_row(["INV002", "Pending", "$150"])
+dt.row_activated.connect(func(row): print(row))
+add_child(dt)
+```
