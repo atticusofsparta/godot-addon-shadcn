@@ -2,8 +2,12 @@
 
 A [shadcn/ui](https://ui.shadcn.com) look-and-feel for Godot 4 — a drop-in
 **Theme** that restyles every stock control, plus the UI **components Godot
-doesn't ship** (Badge, Switch, Card, Alert, Avatar, Skeleton, Spinner,
-Accordion, Breadcrumb, Toast), each styled to match.
+doesn't ship** (charts, dialogs, calendar, command palette, data table, toasts
+and more), each styled to match.
+
+**[📖 Documentation](https://atticusofsparta.github.io/godot-addon-shadcn/)** ·
+**[▶ Live demo](https://atticusofsparta.github.io/godot-addon-shadcn/docs/live-example)**
+(the example exported to the web)
 
 ![showcase](docs/showcase.png)
 
