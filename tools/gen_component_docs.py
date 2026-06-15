@@ -120,8 +120,6 @@ title: {title}
 description: {desc}
 ---
 
-{desc}
-
 <ExampleFrame src="{BASE}?c={cid}" />
 
 Use the panel on the left of the demo to customize this component live, and the
