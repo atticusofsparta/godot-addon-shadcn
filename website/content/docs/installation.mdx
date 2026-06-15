@@ -7,7 +7,20 @@ description: Add the shadcn-godot addon to your Godot 4 project.
 
 Godot **4.3+** (developed and verified against 4.6.3).
 
-## Install
+## Install with one command
+
+Run this from your project's `addons/` folder:
+
+```bash
+cd addons
+curl -fsSL https://raw.githubusercontent.com/atticusofsparta/godot-addon-shadcn/main/install.sh | bash
+```
+
+It downloads the latest `addons/shadcn` into the current folder. Pin a tag or
+branch with `... | bash -s -- v0.1.0`. Then enable **shadcn-godot** in
+*Project → Project Settings → Plugins*.
+
+## Install manually
 
 1. Copy the `addons/shadcn/` folder from this repository into your project's
    `addons/` directory.

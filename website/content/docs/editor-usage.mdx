@@ -1,0 +1,140 @@
+---
+title: Editor & data
+description: Place components as nodes in the editor, then wire them to your data in GDScript.
+---
+
+Every component declares a `class_name`, so it shows up in Godot's **Create New
+Node** dialog (press the **+** in the Scene panel and search "Shadcn…"). Build
+your layout visually, give the node a name, then reference it from a script with
+`@onready` and feed it data.
+
+The pattern is always the same:
+
+1. Add the `Shadcn…` node in the **Scene** panel and name it.
+2. Attach a script to a parent and grab the node with `@onready var x := $Path`.
+3. Call its data methods / connect its signals.
+
+## Data table
+
+Place the node, then populate rows from any data source.
+
+```
+Main (Control)
+└─ Panel (ShadcnCard)
+   └─ VBox (VBoxContainer)
+      └─ Invoices (ShadcnDataTable)   ← added in the editor
+```
+
+```gdscript
+extends Control
+
+@onready var table: ShadcnDataTable = $Panel/VBox/Invoices
+
+func _ready() -> void:
+	table.set_columns(["Invoice", "Status", "Amount"])
+	for row in _load_invoices():           # your data source
+		table.add_row([row.id, row.status, "$%0.2f" % row.amount])
+	table.row_activated.connect(_on_open_invoice)
+
+func _load_invoices() -> Array:
+	# e.g. parse JSON, query a save file, read a Resource…
+	var json := FileAccess.get_file_as_string("user://invoices.json")
+	return JSON.parse_string(json)
+
+func _on_open_invoice(row: Array) -> void:
+	print("open ", row[0])
+```
+
+## Chart
+
+Add a `ShadcnChart`, configure its `kind` in the **Inspector**, then push series
+from code.
+
+```
+Dashboard (Control)
+└─ Revenue (ShadcnChart)   ← Inspector: kind = AREA, gradient = on
+```
+
+```gdscript
+@onready var chart: ShadcnChart = $Revenue
+
+func _ready() -> void:
+	chart.x_labels = months
+	chart.clear_series()
+	chart.add_series(desktop_totals, "Desktop")
+	chart.add_series(mobile_totals, "Mobile")
+
+# Live data? Just rebuild the series and the chart re-animates:
+func refresh_revenue(values: Array) -> void:
+	chart.clear_series()
+	chart.add_series(values, "Revenue")
+```
+
+## Combobox / Select
+
+```
+Form (VBoxContainer)
+└─ Framework (ShadcnCombobox)
+```
+
+```gdscript
+@onready var framework: ShadcnCombobox = $Framework
+
+func _ready() -> void:
+	framework.items = ProjectSettings.get_setting("my/frameworks", [])
+	framework.selected.connect(func(value): _config.framework = value)
+```
+
+## Command palette
+
+```gdscript
+@onready var command: ShadcnCommand = $Palette
+
+func _ready() -> void:
+	for action in EditorActions.all():     # any list of actions
+		command.add_item(action.id, action.label)
+	command.selected.connect(_run_action)
+```
+
+## Pagination over a data view
+
+```gdscript
+@onready var pager: ShadcnPagination = $Pager
+@onready var list: ItemList = $Results
+
+var _data: Array = []
+const PAGE_SIZE := 20
+
+func _ready() -> void:
+	_data = load_results()
+	pager.page_count = ceili(float(_data.size()) / PAGE_SIZE)
+	pager.page_changed.connect(_show_page)
+	_show_page(1)
+
+func _show_page(page: int) -> void:
+	list.clear()
+	var start := (page - 1) * PAGE_SIZE
+	for row in _data.slice(start, start + PAGE_SIZE):
+		list.add_item(row.title)
+```
+
+## Designer-friendly exports
+
+If you want non-programmers to fill in content from the Inspector, expose
+`@export` fields on a small wrapper and forward them:
+
+```gdscript
+@tool
+extends ShadcnItem
+
+@export var record: Resource:
+	set(v):
+		record = v
+		if record:
+			title = record.name
+			description = record.summary
+			icon_text = record.emoji
+```
+
+Because the nodes are `@tool` scripts, edits like this update live in the editor
+viewport.
